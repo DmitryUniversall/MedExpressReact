@@ -1,0 +1,116 @@
+{
+    "header": {
+        "title": "We are a Landing Page",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo nibh ante facilisis bibendum.",
+        "learn_more_button": "Learn More"
+    },
+    "features": {
+        "comments": {
+            "title": "Lorem ipsum",
+            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+        },
+        "bullhorn": {
+            "title": "Lorem ipsum",
+            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+        },
+        "group": {
+            "title": "Lorem ipsum",
+            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+        }
+    },
+    "about": {
+        "about": "About us",
+        "why_choose_us": "Why Choose Us?",
+        "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "items_column_1": [
+            "Lorem ipsum dolor",
+            "Tempor incididunt",
+            "Lorem ipsum dolor",
+            "Incididunt ut labore"
+        ],
+        "items_column_2": [
+            "Aliquip ex ea commodo",
+            "Lorem ipsum dolor",
+            "Exercitation ullamco",
+            "Lorem ipsum dolor"
+        ]
+    },
+    "services": {
+        "title": "Our Services",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed dapibus leonec.",
+        "services": [
+            {
+                "icon": "fa fa-wordpress",
+                "title": "Lorem ipsum dolor",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+            },
+            {
+                "icon": "fa fa-cart-arrow-down",
+                "title": "Consectetur adipiscing",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+            },
+            {
+                "icon": "fa fa-cloud-download",
+                "title": "Lorem ipsum dolor",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+            },
+            {
+                "icon": "fa fa-language",
+                "title": "Consectetur adipiscing",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+            },
+            {
+                "icon": "fa fa-plane",
+                "title": "Lorem ipsum dolor",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+            },
+            {
+                "icon": "fa fa-pie-chart",
+                "title": "Consectetur adipiscing",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+            }
+        ]
+    },
+    "faq": {
+        "title": "Have any questions?",
+        "text": "Lorem ipsum dolor sit amet, consectetur",
+        "faq": [
+            {
+                "title": "Lorem ipsum dolor?",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+            },
+            {
+                "title": "Consectetur adipiscing?",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+            },
+            {
+                "title": "Are all the templates easily customizable?",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+            },
+            {
+                "title": "Consectetur adipiscing?",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+            },
+            {
+                "title": "Lorem ipsum dolor?",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+            },
+            {
+                "title": "Are all the templates easily customizable?",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+            },
+            {
+                "title": "Lorem ipsum dolor?",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+            }
+        ]
+    },
+    "contact": {
+        "get_in_touch": "Get in touch",
+        "fill_the_form": "Please fill out the form below to send us an email and we will get back to you as soon as possible.",
+        "send_message_button": "Send message",
+        "message_placeholder": "Message",
+        "name_placeholder": "Name",
+        "email_placeholder": "Email"
+    }
+}

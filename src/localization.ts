@@ -1,18 +1,20 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import enTranslation from './locales/en/translation.json';
-import frTranslation from './locales/ru/translation.json';
-
+import Backend from 'i18next-http-backend'
 
 export function initializeLocalization(): void {
-    i18n.use(initReactI18next).init({
-        debug: true,
-        resources: {
-            en: { translation: enTranslation },
-            fr: { translation: frTranslation },
-        },
-        lng: 'en',
-        fallbackLng: 'en',
-        interpolation: { escapeValue: false },
-    });
+    i18n
+        .use(Backend)
+        .use(initReactI18next)
+        .init({
+            debug: true,
+            lng: 'ru',
+            fallbackLng: 'ru',
+            interpolation: { escapeValue: false },
+            ns: ['common', 'footer', 'menu', 'index'],
+            defaultNS: 'common',
+            backend: {
+                loadPath: '/src/locales/{{lng}}/{{ns}}.json',
+            },
+        });
 }

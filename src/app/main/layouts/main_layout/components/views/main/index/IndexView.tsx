@@ -1,18 +1,21 @@
 import { FC } from "react";
-import { useTranslation } from 'react-i18next';
+import "./index.css"
+import Header from "./components/Header.tsx";
+import Features from "./components/Features.tsx";
+import About from "./components/About.tsx";
+import Services from "./components/Services.tsx";
+import FAQ from "./components/FAQ.tsx";
+import Contact from "./components/Contact.tsx";
 
 const IndexView: FC = () => {
-    const { t, i18n } = useTranslation();
-
-    const toggleLanguage = () => {
-        const nextLang = i18n.language === 'en' ? 'ru' : 'en';
-        i18n.changeLanguage(nextLang);
-    };
-
     return (
-        <div id="index" className="d-flex flex-column justify-content-center align-items-center">
-            <h1>{ t("index") }</h1>
-            <button onClick={ toggleLanguage }>Switch</button>
+        <div id="index" className="w-100">
+            <Header/>
+            <Features />
+            <About />
+            <Services />
+            <FAQ />
+            <Contact />
         </div>
     )
 }
