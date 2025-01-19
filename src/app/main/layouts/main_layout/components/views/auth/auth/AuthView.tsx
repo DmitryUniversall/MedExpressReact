@@ -1,11 +1,15 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import "./auth.css"
 import { classNames } from "../../../../../../../core/utils/utils.ts";
 import AuthFormInput from "./components/AuthFormInput.tsx";
 import { useAuth } from "../../../../../../api/services/auth/utils/context/hook.ts";
 import ApiResponse from "../../../../../../api/api_response.ts";
-import { AuthData } from "../../../../../../api/services/auth/utils/utils.ts";
+import { AuthData } from "../../../../../../api/services/auth/internal_utils/utils.ts";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { pathSearch } from "../../../../../../../core/routing/path.ts";
+import mainLayoutRouting from "../../../../routing.ts";
 
 enum AuthType {
     login = "login",
@@ -59,10 +63,12 @@ const AuthView: FC = () => {
     const [authType, setAuthType] = useState<AuthType>(AuthType.login);
     const [authFormState, setAuthFormState] = useState<AuthFormState>(initialAuthFormState)
 
-    if (isAuthenticated()) {
-        navigate(-1);
-        return;
-    }
+    useEffect(() => {
+        if (isAuthenticated()) {
+            navigate(pathSearch(mainLayoutRouting, "main=>index", {}));  // TODO: history.goBack()
+            return;
+        }
+    }, [isAuthenticated, navigate])
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -79,22 +85,24 @@ const AuthView: FC = () => {
         const errors: Partial<AuthFormState> = validateForm(authFormState, authType)
         setErrors(errors)
 
-        if (errors) return;
+        if (Object.keys(errors).length !== 0) return;
         await handleAuth();
     };
 
     const handleAuth = async () => {
-        let apiResponse: ApiResponse<AuthData> | null
+        let apiResponse: ApiResponse<AuthData>
 
-        if (authType == AuthType.login) {
-            apiResponse = await loginUser(authFormState);
-        } else {
-            apiResponse = await registerUser(authFormState);
-        }
+        try {
+            if (authType == AuthType.login) {
+                apiResponse = await loginUser(authFormState);
+            } else {
+                apiResponse = await registerUser(authFormState);
+            }
+        } catch (error) {
+            if (!axios.isAxiosError(error)) throw error;  // TODO: toast error and log error instead of crash program
+            if (!error.response || !error.response.data) throw error;  // FIXME: BAD ERROR HANDLING
 
-        if (!apiResponse) {
-            setAuthError("Auth failed: Unknown error");
-            return;
+            apiResponse = error.response.data;
         }
 
         if (!apiResponse.ok) {
@@ -102,7 +110,8 @@ const AuthView: FC = () => {
             return;
         }
 
-        navigate(-1);
+        toast.success("Auth successful");
+        navigate(pathSearch(mainLayoutRouting, "main=>index", {}));
     }
 
     return (
@@ -153,14 +162,14 @@ const AuthView: FC = () => {
                                                 <>
                                                     <AuthFormInput
                                                         handleInputChange={ handleInputChange }
-                                                        name={ "firstName" }
+                                                        name={ "first_name" }
                                                         type={ "text" }
                                                         placeholder={ "Имя" }
                                                         value={ authFormState.first_name }
                                                         error={ errors.first_name }/>
                                                     <AuthFormInput
                                                         handleInputChange={ handleInputChange }
-                                                        name={ "lastName" }
+                                                        name={ "last_name" }
                                                         type={ "text" }
                                                         placeholder={ "Фамилия" }
                                                         value={ authFormState.last_name }
@@ -181,7 +190,7 @@ const AuthView: FC = () => {
                                                         error={ errors.password }/>
                                                     <AuthFormInput
                                                         handleInputChange={ handleInputChange }
-                                                        name={ "passwordConfirmation" }
+                                                        name={ "password_confirmation" }
                                                         type={ "password" }
                                                         placeholder={ "Подтверждение пароля" }
                                                         value={ authFormState.password_confirmation }
@@ -196,7 +205,9 @@ const AuthView: FC = () => {
                                 </div>
                             </form>
 
-                            <div className={ classNames("error", { "error-show": !!authError }) }>test</div>
+                            <div className={ classNames("error", { "error-show": !!authError }) }>
+                                <span className="w-100 text-center">{ authError }</span>
+                            </div>
                         </div>
                     </div>
                 </div>

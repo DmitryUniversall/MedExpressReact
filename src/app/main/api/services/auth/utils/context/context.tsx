@@ -1,17 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import { AxiosResponse } from "axios";
-import { toast } from "react-toastify";
 import { UserPrivate } from "../../models/user.ts";
 import { createContext, FC, ReactNode, useEffect, useState } from "react";
-import { AuthData } from "../utils.ts";
+import { AuthData } from "../../internal_utils/utils.ts";
 import ApiResponse from "../../../../api_response.ts";
-import { getAuthDataFromStorage, saveAuthDataToStorage } from "../tokens.ts";
+import { getAuthDataFromStorage, saveAuthDataToStorage } from "../../internal_utils/tokens.ts";
 import { loginAPICall, LoginRequestParams, registerAPICall, RegisterRequestParams } from "../../service.ts";
+import { setupAxiosClient } from "../../../../../../core/http/axios_client.ts";
+import { pathSearch } from "../../../../../../core/routing/path.ts";
+import mainLayoutRouting from "../../../../../layouts/main_layout/routing.ts";
 
 interface AuthContextData {
     user: UserPrivate | null;
-    registerUser: (data: RegisterRequestParams) => Promise<ApiResponse<AuthData> | null>;
-    loginUser: (data: LoginRequestParams) => Promise<ApiResponse<AuthData> | null>;
+    registerUser: (data: RegisterRequestParams) => Promise<ApiResponse<AuthData>>;
+    loginUser: (data: LoginRequestParams) => Promise<ApiResponse<AuthData>>;
     logoutUser: () => void;
     isAuthenticated: () => boolean;
 }
@@ -30,33 +32,33 @@ const AuthContextProvider: FC<UserContextProps> = ({ children }: UserContextProp
     useEffect(() => {
         const authData: AuthData | null = getAuthDataFromStorage();
         if (authData) setAuthData(authData);
+
+        setupAxiosClient(() => authData, setAuthData, logoutUser);
         setReady(true);
     }, [])
 
-    const registerUser = async (params: RegisterRequestParams): Promise<ApiResponse<AuthData> | null> => {
-        const response: AxiosResponse<ApiResponse<AuthData>> | null = await registerAPICall(params);
+    const registerUser = async (params: RegisterRequestParams): Promise<ApiResponse<AuthData>> => {
+        const response: AxiosResponse<ApiResponse<AuthData>> = await registerAPICall(params);
 
-        if (!response || !response.data) return null;
-        if (!response.data.ok) return response.data;
+        if (!response.data.ok) return response.data;  // FIXME: BAD ERROR HANDLING
 
         const authData: AuthData = response.data.data;
-        saveAuthDataToStorage(authData);
+        saveAuthDataToStorage(authData);  // TODO: Make it in custom setAuthData?
         setAuthData(authData);
-        navigate("");
+        navigate(pathSearch(mainLayoutRouting, "main=>index", {}));
 
         return response.data;
     }
 
-    const loginUser = async (params: LoginRequestParams): Promise<ApiResponse<AuthData> | null> => {
-        const response: AxiosResponse<ApiResponse<AuthData>> | null = await loginAPICall(params);
+    const loginUser = async (params: LoginRequestParams): Promise<ApiResponse<AuthData>> => {
+        const response: AxiosResponse<ApiResponse<AuthData>> = await loginAPICall(params);
 
-        if (!response || !response.data) return null;
         if (!response.data.ok) return response.data;
 
         const authData: AuthData = response.data.data;
         saveAuthDataToStorage(authData);
         setAuthData(authData);
-        navigate("");
+        navigate(pathSearch(mainLayoutRouting, "main=>index", {}));
 
         return response.data;
     }
@@ -64,7 +66,6 @@ const AuthContextProvider: FC<UserContextProps> = ({ children }: UserContextProp
     const logoutUser = () => {
         saveAuthDataToStorage(null);
         setAuthData(null);
-        toast.success("Logout successful")
     }
 
     const isAuthenticated = () => {

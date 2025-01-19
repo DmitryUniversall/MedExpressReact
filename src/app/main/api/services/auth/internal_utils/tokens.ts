@@ -11,7 +11,7 @@ const getAuthDataFromStorage = (): AuthData | null => {
 
 
 const saveAuthDataToStorage = (authData: AuthData | null): void => {
-    sessionStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(authData));
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(authData));
 }
 
 export {

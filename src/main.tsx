@@ -3,10 +3,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import './assets/styles/utils.css'
 import './assets/styles/global.css'
 
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./errors.ts"
 import { layout } from "./project_routing.ts";
 import { initializeLocalization } from "./localization.ts";
+
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { I18nextProvider } from "react-i18next";
 import i18n from "i18next";
 
