@@ -11,7 +11,6 @@ export function initializeLocalization(): void {
             lng: 'ru',
             fallbackLng: 'ru',
             interpolation: { escapeValue: false },
-            ns: ['common', 'footer', 'menu', 'index'],
             defaultNS: 'common',
             backend: {
                 loadPath: '/src/locales/{{lng}}/{{ns}}.json',

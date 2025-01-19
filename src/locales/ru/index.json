@@ -1,116 +1,99 @@
 {
     "header": {
-        "title": "We are a Landing Page",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo nibh ante facilisis bibendum.",
-        "learn_more_button": "Learn More"
+        "title": "МедЭкспресс",
+        "description": "Мы обеспечиваем удобство и безопасность, предлагая подписку на регулярную доставку лекарств прямо к вашему порогу. Забудьте о необходимости помнить даты повторного заказа — мы сделаем это за вас.",
+        "learn_more_button": "Узнать больше"
     },
     "features": {
-        "comments": {
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
-        },
-        "bullhorn": {
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
-        },
-        "group": {
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
-        }
+        "title": "Почему выбирают нас?",
+        "features": [
+            {
+                "icon": "fa fa-user",
+                "title": "Индивидуальный подход",
+                "text": "Мы адаптируем доставку в соответствии с вашими потребностями: выбирайте периодичность и состав заказов."
+            },
+            {
+                "icon": "fa fa-shield",
+                "title": "Безопасность",
+                "text": "Все лекарства сертифицированы и доставляются в надлежащих условиях для сохранения их качества."
+            },
+            {
+                "icon": "fa fa-clock-o",
+                "title": "Экономия времени",
+                "text": "С нами вы можете сосредоточиться на важном, пока мы заботимся о доставке ваших лекарств."
+            }
+        ]
     },
     "about": {
-        "about": "About us",
-        "why_choose_us": "Why Choose Us?",
-        "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "about": "О нас",
+        "why_choose_us": "Почему выбирают нас?",
+        "paragraph": "Мы — команда профессионалов, стремящаяся сделать процесс получения лекарств простым, удобным и надежным. Наша миссия — помогать вам заботиться о вашем здоровье.",
         "items_column_1": [
-            "Lorem ipsum dolor",
-            "Tempor incididunt",
-            "Lorem ipsum dolor",
-            "Incididunt ut labore"
+            "Гибкие условия подписки",
+            "Доставка до двери",
+            "Качественные лекарства",
+            "Персонализированный сервис"
         ],
         "items_column_2": [
-            "Aliquip ex ea commodo",
-            "Lorem ipsum dolor",
-            "Exercitation ullamco",
-            "Lorem ipsum dolor"
+            "Простое управление подпиской",
+            "Напоминания о доставке",
+            "Доступные цены",
+            "Поддержка 24/7"
         ]
     },
     "services": {
-        "title": "Our Services",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed dapibus leonec.",
+        "title": "Наши услуги",
+        "text": "Мы предлагаем подписку на доставку лекарств и планируем расширить ассортимент услуг в будущем.",
         "services": [
             {
-                "icon": "fa fa-wordpress",
-                "title": "Lorem ipsum dolor",
-                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+                "icon": "fa fa-ambulance",
+                "title": "Подписка на доставку",
+                "text": "Оформите подписку и получите лекарства в удобное для вас время с выбранной периодичностью."
             },
             {
-                "icon": "fa fa-cart-arrow-down",
-                "title": "Consectetur adipiscing",
-                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+                "icon": "fa fa-heart",
+                "title": "Сертифицированные препараты",
+                "text": "Мы работаем только с проверенными производителями и дистрибьюторами."
             },
             {
-                "icon": "fa fa-cloud-download",
-                "title": "Lorem ipsum dolor",
-                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-            },
-            {
-                "icon": "fa fa-language",
-                "title": "Consectetur adipiscing",
-                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-            },
-            {
-                "icon": "fa fa-plane",
-                "title": "Lorem ipsum dolor",
-                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-            },
-            {
-                "icon": "fa fa-pie-chart",
-                "title": "Consectetur adipiscing",
-                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+                "icon": "fa fa-clock-o",
+                "title": "Гибкость доставки",
+                "text": "Изменяйте периодичность и состав заказов в любое время через личный кабинет."
             }
         ]
     },
     "faq": {
-        "title": "Have any questions?",
-        "text": "Lorem ipsum dolor sit amet, consectetur",
+        "title": "Часто задаваемые вопросы",
+        "text": "Мы собрали ответы на популярные вопросы, чтобы упростить использование нашего сервиса.",
         "faq": [
             {
-                "title": "Lorem ipsum dolor?",
-                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+                "title": "Как оформить подписку?",
+                "content": "Просто зарегистрируйтесь на сайте, выберите необходимые лекарства, укажите адрес и оплатите подписку."
             },
             {
-                "title": "Consectetur adipiscing?",
-                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+                "title": "Можно ли изменить состав заказа?",
+                "content": "Да, вы можете обновить список лекарств в личном кабинете."
             },
             {
-                "title": "Are all the templates easily customizable?",
-                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+                "title": "Как отменить подписку?",
+                "content": "Вы можете отменить подписку в любое время, написав в службу поддержки или через настройки профиля."
             },
             {
-                "title": "Consectetur adipiscing?",
-                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+                "title": "Какие лекарства доступны?",
+                "content": "Мы предлагаем широкий ассортимент лекарств, включая рецептурные и безрецептурные препараты."
             },
             {
-                "title": "Lorem ipsum dolor?",
-                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-            },
-            {
-                "title": "Are all the templates easily customizable?",
-                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-            },
-            {
-                "title": "Lorem ipsum dolor?",
-                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+                "title": "Есть ли дополнительные сборы за доставку?",
+                "content": "В рамках подписки доставка бесплатна. Дополнительные услуги могут быть оплачены отдельно."
             }
         ]
     },
     "contact": {
-        "get_in_touch": "Get in touch",
-        "fill_the_form": "Please fill out the form below to send us an email and we will get back to you as soon as possible.",
-        "send_message_button": "Send message",
-        "message_placeholder": "Message",
-        "name_placeholder": "Name",
-        "email_placeholder": "Email"
+        "get_in_touch": "Остались вопросы? Свяжитесь с нами!",
+        "fill_the_form": "Заполните форму ниже, и мы ответим вам в кратчайшие сроки.",
+        "send_message_button": "Отправить сообщение",
+        "message_placeholder": "Сообщение",
+        "name_placeholder": "Имя",
+        "email_placeholder": "Электронная почта"
     }
 }

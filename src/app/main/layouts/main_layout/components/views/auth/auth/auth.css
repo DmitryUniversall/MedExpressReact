@@ -1,0 +1,62 @@
+#auth_view {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 4rem;
+}
+
+#auth_view .auth-main {
+}
+
+#auth_view .auth-title {
+    color: rgb(51, 51, 51);
+}
+
+#auth_view .auth-card {
+    padding: 20px;
+    border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+    border-radius: 0.7rem;
+}
+
+#auth_view .auth-nav {
+    gap: 0.2rem;
+    margin-bottom: 1.5rem;
+}
+
+#auth_view .auth-type {
+    height: 40px;
+    background-color: rgb(239, 239, 239);
+    border-radius: 0.4rem;
+    transition: all 0.2s linear;
+    font-weight: bold;
+    border: none;
+}
+
+
+#auth_view .auth-type.active {
+    color: #fff;
+    background-color: #5ca9fb;
+    background-image: linear-gradient(to right, #5ca9fb 0%, #6372ff 100%);
+}
+
+#auth_view label {
+    font-size: 18px;
+    color: black;
+}
+
+#auth_view .invalid-feedback {
+    text-align: start;
+}
+
+#auth_view .error {
+    color: red;
+    font-weight: bold;
+    display: none;
+}
+
+#auth_view .error-show {
+    display: flex;
+}

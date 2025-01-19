@@ -1,14 +1,16 @@
 body,
-html {
+html,
+#root {
     display: flex;
     flex-direction: column;
     font-family: "Open Sans", sans-serif;
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
-    color: #777;
     font-weight: 400;
     width: 100% !important;
-    height: 100% !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    color: #777;
 }
 
 h2,

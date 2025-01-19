@@ -9,16 +9,13 @@
     background-size: cover;
 
     height: 100vh;
+    margin-top: -77px !important;
 }
 
 .intro .overlay {
     background: rgba(0, 0, 0, 0.2);
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    height: 100vh;
+    height: 100%;
 }
 
 .intro h1 {
@@ -77,8 +74,8 @@ header .intro-text {
     background-color: #6372ff;
 }
 
-.btn:active,
-.btn.active {
+.btn-intro:active,
+.btn-intro.active {
     background-image: none;
     outline: 0;
     -webkit-box-shadow: none;
@@ -161,7 +158,6 @@ a:focus,
     max-width: 520px;
     margin-top: 10px;
     background: #fff;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.06);
 }
 
 #about p {

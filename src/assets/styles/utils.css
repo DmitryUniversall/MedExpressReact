@@ -9,3 +9,25 @@
 .text-bold {
     font-weight: bold !important;
 }
+
+.btn-custom-primary {
+    color: #fff;
+    background-color: #5ca9fb;
+    background-image: linear-gradient(to right, #5ca9fb 0%, #6372ff 100%);
+    border: none;
+}
+
+.btn-custom-primary:hover,
+.btn-custom-primary:focus,
+.btn-custom-primary.focus,
+.btn-custom-primary:active,
+.btn-custom-primary.active {
+    color: #fff;
+    background-image: none;
+    background-color: #6372ff;
+    transition: all 0.4s ease;
+}
+
+/** {*/
+/*    border: 1px red dashed !important;*/
+/*}*/

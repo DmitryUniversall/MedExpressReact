@@ -18,7 +18,6 @@ const About: FC = () => {
                             alt="About Us"
                         />
                     </div>
-
                     <div className="col-md-6">
                         <div className="about-text">
                             <h2>{ t("about.about") }</h2>
@@ -47,7 +46,6 @@ const About: FC = () => {
                 </div>
             </div>
         </div>
-
     )
 }
 
