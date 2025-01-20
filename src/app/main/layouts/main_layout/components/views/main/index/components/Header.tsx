@@ -1,5 +1,8 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
+import { pathSearch } from "../../../../../../../../core/routing/path.ts";
+import ScrollLink from "../../../../../../../../core/routing/ScrollLink.tsx";
+import mainLayoutRouting from "../../../../../routing.ts";
 
 const Header: FC = () => {
     const { t } = useTranslation("index");
@@ -15,9 +18,12 @@ const Header: FC = () => {
                                     { t("header.title") }
                                 </h1>
                                 <p>{ t("header.description") }</p>
-                                <a className="btn btn-intro btn-lg page-scroll">
+                                <ScrollLink
+                                    to={ pathSearch(mainLayoutRouting, "main=>index", {}) }
+                                    id={ "about" }
+                                    className="btn btn-intro btn-lg page-scroll">
                                     { t("header.learn_more_button") }
-                                </a>
+                                </ScrollLink>
                             </div>
                         </div>
                     </div>

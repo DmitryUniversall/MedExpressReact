@@ -3,13 +3,12 @@ import "./auth.css"
 import { classNames } from "../../../../../../../core/utils/utils.ts";
 import AuthFormInput from "./components/AuthFormInput.tsx";
 import { useAuth } from "../../../../../../api/services/auth/utils/context/hook.ts";
-import ApiResponse from "../../../../../../api/api_response.ts";
-import { AuthData } from "../../../../../../api/services/auth/internal_utils/utils.ts";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import axios from "axios";
 import { pathSearch } from "../../../../../../../core/routing/path.ts";
 import mainLayoutRouting from "../../../../routing.ts";
+import ApiRequestError from "../../../../../../api/errors/api_request_error.ts";
+import ApiRespondedError from "../../../../../../api/errors/api_responded_error.ts";
 
 enum AuthType {
     login = "login",
@@ -24,7 +23,7 @@ interface AuthFormState {
     last_name: string;
 }
 
-const initialAuthFormState = {
+const initialAuthFormState: AuthFormState = {
     email: "",
     password: "",
     password_confirmation: "",
@@ -90,25 +89,27 @@ const AuthView: FC = () => {
     };
 
     const handleAuth = async () => {
-        let apiResponse: ApiResponse<AuthData>
-
         try {
             if (authType == AuthType.login) {
-                apiResponse = await loginUser(authFormState);
+                await loginUser(authFormState);
             } else {
-                apiResponse = await registerUser(authFormState);
+                await registerUser(authFormState);
             }
         } catch (error) {
-            if (!axios.isAxiosError(error)) throw error;  // TODO: toast error and log error instead of crash program
-            if (!error.response || !error.response.data) throw error;  // FIXME: BAD ERROR HANDLING
+            if (error instanceof Error) console.error('Authentication failed: ', error);
+            toast.error("Auth failed");  // TODO: Translate it
 
-            apiResponse = error.response.data;
-        }
+            if (error instanceof ApiRequestError) {
+                setAuthError("Authentication failed: Unknown error occurred.");  // TODO: Translate it
+            } else if (error instanceof ApiRespondedError) {
+                setAuthError(`Authentication failed: ${ error.responseData.message }`);  // TODO: Translate it
+            } else {
+                console.error("Unknown error occurred during authentication");
+            }
 
-        if (!apiResponse.ok) {
-            setAuthError(`Auth failed: (${ apiResponse.message })`);
             return;
         }
+
 
         toast.success("Auth successful");
         navigate(pathSearch(mainLayoutRouting, "main=>index", {}));

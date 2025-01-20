@@ -40,8 +40,6 @@ const AuthContextProvider: FC<UserContextProps> = ({ children }: UserContextProp
     const registerUser = async (params: RegisterRequestParams): Promise<ApiResponse<AuthData>> => {
         const response: AxiosResponse<ApiResponse<AuthData>> = await registerAPICall(params);
 
-        if (!response.data.ok) return response.data;  // FIXME: BAD ERROR HANDLING
-
         const authData: AuthData = response.data.data;
         saveAuthDataToStorage(authData);  // TODO: Make it in custom setAuthData?
         setAuthData(authData);
@@ -52,8 +50,6 @@ const AuthContextProvider: FC<UserContextProps> = ({ children }: UserContextProp
 
     const loginUser = async (params: LoginRequestParams): Promise<ApiResponse<AuthData>> => {
         const response: AxiosResponse<ApiResponse<AuthData>> = await loginAPICall(params);
-
-        if (!response.data.ok) return response.data;
 
         const authData: AuthData = response.data.data;
         saveAuthDataToStorage(authData);

@@ -51,7 +51,7 @@ function getNextTheme(currentTheme: Theme): Theme {
     const themes: Theme[] = Object.values(Theme);
 
     const currentIndex: number = themes.indexOf(currentTheme);
-    if (currentIndex === -1) throw new Error(`Unable to get next theme: invalid theme: ${currentTheme}`);
+    if (currentIndex === -1) throw new Error(`Unable to get next theme: invalid theme: ${ currentTheme }`);
 
     return themes[(currentIndex + 1) % themes.length] as Theme;
 }

@@ -1,5 +1,5 @@
-import React, {createContext, ReactNode, useCallback, useContext, useMemo, useState} from "react";
-import {getGlobalTheme, getNextTheme, setGlobalTheme, Theme} from "./themes.ts";
+import React, { createContext, ReactNode, useCallback, useContext, useMemo, useState } from "react";
+import { getGlobalTheme, getNextTheme, setGlobalTheme, Theme } from "./themes.ts";
 
 interface ThemeContextValue {
     getTheme: () => Theme;
@@ -13,7 +13,7 @@ interface ThemeContextProviderProps {
     children: ReactNode;
 }
 
-const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({children}) => {
+const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({ children }) => {
     const [theme, setThemeState] = useState<Theme>(getGlobalTheme());
 
     // Needed to change global theme and local theme (state)
@@ -38,8 +38,8 @@ const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({children}) =
     );
 
     return (
-        <ThemeContext.Provider value={contextValue}>
-            {children}
+        <ThemeContext.Provider value={ contextValue }>
+            { children }
         </ThemeContext.Provider>
     );
 }
@@ -51,4 +51,4 @@ const useThemeContext = (): ThemeContextValue => {
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
-export {ThemeContextProvider, useThemeContext};
+export { ThemeContextProvider, useThemeContext };
