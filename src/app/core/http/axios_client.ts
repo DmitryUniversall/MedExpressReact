@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosResponse } from "axios";
+import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import { API_REQUEST_TIMEOUT, API_URL } from "../../main/api/api_config.ts";
 import { AuthData, AuthTokenPair } from "../../main/api/services/auth/internal_utils/utils.ts";
 import ApiResponse from "../../main/api/api_response.ts";
@@ -9,6 +9,9 @@ import { refreshTokensAPICall } from "../../main/api/services/auth/service.ts";
 import { pathSearch } from "../routing/path.ts";
 import mainLayoutRouting from "../../main/layouts/main_layout/routing.ts";
 
+interface CustomAxiosRequestConfig extends InternalAxiosRequestConfig {
+    _retry?: boolean;
+}
 
 const axiosClient = axios.create({
     baseURL: API_URL,
@@ -73,7 +76,7 @@ const setupAxiosTokenRefresh = (
             if (!(error instanceof ApiRespondedError)) return Promise.reject(error);
             if (!(error.original instanceof AxiosError)) return Promise.reject(error);
 
-            const originalRequest = error.original.config;
+            const originalRequest = error.original.config as CustomAxiosRequestConfig;
             if (!originalRequest) return Promise.reject(error);
 
             // Check if original request failed due to token expiration
