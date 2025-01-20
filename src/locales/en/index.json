@@ -1,23 +1,99 @@
 {
     "header": {
-        "title": "We are a Landing Page",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo nibh ante facilisis bibendum."
+        "title": "MedExpress",
+        "description": "We provide convenience and safety by offering a subscription service for regular delivery of medications right to your doorstep. Forget about keeping track of refill dates — we’ll handle it for you.",
+        "learn_more_button": "Learn More"
     },
     "features": {
-        "comments": {
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
-        },
-        "bullhorn": {
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
-        },
-        "group": {
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
-        }
+        "title": "Why Choose Us?",
+        "features": [
+            {
+                "icon": "fa fa-user",
+                "title": "Personalized Approach",
+                "text": "We tailor deliveries to your needs: choose the frequency and contents of your orders."
+            },
+            {
+                "icon": "fa fa-shield",
+                "title": "Safety",
+                "text": "All medications are certified and delivered under appropriate conditions to ensure their quality."
+            },
+            {
+                "icon": "fa fa-clock-o",
+                "title": "Time Savings",
+                "text": "Focus on what matters most while we take care of delivering your medications."
+            }
+        ]
     },
     "about": {
-        ""
+        "about": "About Us",
+        "why_choose_us": "Why Choose Us?",
+        "paragraph": "We are a team of professionals dedicated to making the process of obtaining medications simple, convenient, and reliable. Our mission is to help you take care of your health.",
+        "items_column_1": [
+            "Flexible subscription plans",
+            "Doorstep delivery",
+            "High-quality medications",
+            "Personalized service"
+        ],
+        "items_column_2": [
+            "Easy subscription management",
+            "Delivery reminders",
+            "Affordable pricing",
+            "24/7 support"
+        ]
+    },
+    "services": {
+        "title": "Our Services",
+        "text": "We offer a subscription-based medication delivery service and plan to expand our range of services in the future.",
+        "services": [
+            {
+                "icon": "fa fa-ambulance",
+                "title": "Delivery Subscription",
+                "text": "Subscribe to receive medications at your convenience with your chosen frequency."
+            },
+            {
+                "icon": "fa fa-heart",
+                "title": "Certified Medications",
+                "text": "We work only with trusted manufacturers and distributors."
+            },
+            {
+                "icon": "fa fa-clock-o",
+                "title": "Flexible Delivery",
+                "text": "Adjust the frequency and contents of your orders anytime through your personal account."
+            }
+        ]
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "text": "We’ve compiled answers to common questions to make using our service easier.",
+        "faq": [
+            {
+                "title": "How do I subscribe?",
+                "content": "Simply register on our website, select the medications you need, provide your address, and complete your subscription payment."
+            },
+            {
+                "title": "Can I change my order contents?",
+                "content": "Yes, you can update your medication list through your personal account."
+            },
+            {
+                "title": "How can I cancel my subscription?",
+                "content": "You can cancel your subscription at any time by contacting support or through your profile settings."
+            },
+            {
+                "title": "What medications are available?",
+                "content": "We offer a wide range of medications, including prescription and over-the-counter products."
+            },
+            {
+                "title": "Are there additional delivery fees?",
+                "content": "Delivery is free within the subscription. Additional services may incur separate charges."
+            }
+        ]
+    },
+    "contact": {
+        "get_in_touch": "Have Questions? Get in Touch!",
+        "fill_the_form": "Fill out the form below, and we’ll get back to you shortly.",
+        "send_message_button": "Send Message",
+        "message_placeholder": "Message",
+        "name_placeholder": "Name",
+        "email_placeholder": "Email"
     }
 }
