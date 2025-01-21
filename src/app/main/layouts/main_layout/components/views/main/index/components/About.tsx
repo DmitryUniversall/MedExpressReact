@@ -25,14 +25,14 @@ const About: FC = () => {
                             <h3>{ t("about.why_choose_us") }</h3>
                             <div className="list-style">
                                 <div className="row">
-                                    <div className="col-6">
+                                    <div className="col-12 col-sm-6">
                                         <ul>
                                             { items_column_1.map((d, i) => (
                                                 <li key={ `${ d }-${ i }` }>{ d }</li>
                                             )) }
                                         </ul>
                                     </div>
-                                    <div className="col-6">
+                                    <div className="col-12 col-sm-6 mt-3 mt-sm-0">
                                         <ul>
                                             { items_column_2.map((d, i) => (
                                                 <li key={ `${ d }-${ i }` }>{ d }</li>

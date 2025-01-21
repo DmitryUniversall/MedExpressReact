@@ -1,12 +1,19 @@
+// Lib js
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
+// Lib css
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
+
+// Global css
 import './assets/styles/utils.css'
 import './assets/styles/global.css'
 
+// Init
 import "./errors.ts"
+
 import { layout } from "./project_routing.ts";
 import { initializeLocalization } from "./localization.ts";
-
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { I18nextProvider } from "react-i18next";

@@ -120,9 +120,9 @@ const AuthView: FC = () => {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="auth-main col-11 col-sm-9 col-md-7 col-lg-5">
-                        <h2 className="auth-title mb-4">Авторизация</h2>
+                        <h2 className="auth-title mb-4 fs-1">Авторизация</h2>
                         <div className="auth-card">
-                            <div className="auth-nav d-flex flex-row">
+                            <div className="auth-nav d-flex flex-column flex-sm-row">
                                 <button
                                     className={ classNames("btn w-100 auth-type", { active: authType == AuthType.login }) }
                                     onClick={ () => handleSetAuthType(AuthType.login) }>Вход

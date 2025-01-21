@@ -2,6 +2,7 @@
 #menu {
     padding: 15px;
     transition: all 0.8s;
+    position: fixed;
 }
 
 #menu.navbar-light {
@@ -67,17 +68,20 @@
 }
 
 .navbar-toggler {
-    border-radius: 0;
-    border: none;
+    border-radius: 0.2rem;
+    border: none !important;
     outline: none;
+    box-shadow: 0 0 4px rgba(156, 155, 155, 0.5);
 }
 
-.navbar-light .navbar-toggler:hover,
-.navbar-light .navbar-toggler:focus {
-    background-color: #fff;
-    border: 1px solid #608dfd;
+.navbar-toggler:focus {
+    box-shadow: 0 0 4px rgba(156, 155, 155, 0.5);
 }
 
-.navbar-light .navbar-toggler:hover .navbar-toggler-icon {
-    background-color: #608dfd;
+.navbar-toggler:hover {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.navbar-toggler:active {
+    color: rgba(0, 0, 0, 0.4);
 }

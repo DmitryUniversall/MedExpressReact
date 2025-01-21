@@ -92,6 +92,47 @@ a:focus,
     outline: none;
 }
 
+/* Default font size */
+.intro h1 {
+    font-size: 2.2rem;
+}
+
+.intro p {
+    font-size: 0.8rem;
+}
+
+/* Small screens (>= 576px) */
+@media (min-width: 576px) {
+    .intro h1 {
+        font-size: 3rem;
+    }
+
+    .intro p {
+        font-size: 1.125rem;
+    }
+}
+
+/* Medium screens (>= 768px) */
+@media (min-width: 768px) {
+    .intro h1 {
+        font-size: 3.5rem;
+    }
+
+    .intro p {
+        font-size: 1.125rem;
+    }
+}
+
+/* Large screens (>= 992px) */
+@media (min-width: 992px) {
+    .intro h1 {
+        font-size: 4rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+}
 
 /* Features Section */
 #features {
