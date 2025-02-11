@@ -1,3 +1,11 @@
 {
-    "company_name": "МедЭкспресс"
+    "company_name": "МедЭкспресс",
+    "delete": "Удалить",
+    "apply": "Применить",
+    "delivery": "Доставка",
+    "price": "Цена",
+    "back_to_market": "Вернуться в магазин",
+    "add_to_cart": "Добавить в корзину",
+    "add_to_cart_short": "В корзину",
+    "new-product": "Новинка"
 }

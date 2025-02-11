@@ -1,0 +1,12 @@
+{
+    "price_per_item": "шт",
+    "delivery_info": "Бесплатная доставка в течении первого месяца",
+    "delivery_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip",
+    "your_shopping_cart": "Ваша корзина",
+    "have_coupon": "Есть промокод?",
+    "coupon_code": "Промокод",
+    "total": "Итого",
+    "discount": "Скидка",
+    "purchase": "Оформить заказ",
+    "recommended_items": "Рекомендуемые товары"
+}

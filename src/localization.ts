@@ -3,15 +3,17 @@ import { initReactI18next } from 'react-i18next';
 
 // Localization RU
 import commonLocalizationRU from "./locales/ru/common.json"
+import menuLocalizationRU from "./locales/ru/menu.json"
 import footerLocalizationRU from "./locales/ru/footer.json"
 import indexLocalizationRU from "./locales/ru/index.json"
-import menuLocalizationRU from "./locales/ru/menu.json"
+import cartLocalizationRU from "./locales/ru/cart.json"
 
 // Localization EN
 import commonLocalizationEN from "./locales/en/common.json"
+import menuLocalizationEN from "./locales/en/menu.json"
 import footerLocalizationEN from "./locales/en/footer.json"
 import indexLocalizationEN from "./locales/en/index.json"
-import menuLocalizationEN from "./locales/en/menu.json"
+import cartLocalizationEN from "./locales/en/cart.json"
 
 
 export function initializeLocalization(): void {
@@ -27,13 +29,15 @@ export function initializeLocalization(): void {
                     common: commonLocalizationRU,
                     footer: footerLocalizationRU,
                     index: indexLocalizationRU,
-                    menu: menuLocalizationRU
+                    menu: menuLocalizationRU,
+                    cart: cartLocalizationRU
                 },
                 en: {
                     common: commonLocalizationEN,
                     footer: footerLocalizationEN,
                     index: indexLocalizationEN,
-                    menu: menuLocalizationEN
+                    menu: menuLocalizationEN,
+                    cart: cartLocalizationEN
                 }
             }
         });
