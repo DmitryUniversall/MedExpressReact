@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom';
-import { useAuth } from "./hook.ts";
+import { useAuth } from "./context/hook.ts";
 
 interface ProtectedRouteProps {
     children: Element;

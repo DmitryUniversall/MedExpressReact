@@ -6,16 +6,18 @@ import About from "./components/About.tsx";
 import Services from "./components/Services.tsx";
 import FAQ from "./components/FAQ.tsx";
 import Contact from "./components/Contact.tsx";
+import PopularProducts from "./components/PopularProducts.tsx";
 
 const IndexView: FC = () => {
     return (
         <div id="index" className="w-100">
             <Header/>
-            <Features />
-            <About />
-            <Services />
-            <FAQ />
-            <Contact />
+            <Features/>
+            <PopularProducts/>
+            <About/>
+            <Services/>
+            <FAQ/>
+            <Contact/>
         </div>
     )
 }

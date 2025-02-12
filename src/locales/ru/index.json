@@ -24,6 +24,10 @@
             }
         ]
     },
+    "popular_products":  {
+        "title": "Закажите доставку уже сейчас",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
     "about": {
         "about": "О нас",
         "why_choose_us": "Почему выбирают нас?",
