@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useAuth } from "../../../../../../api/services/auth/utils/context/hook.ts";
 import { useNavigate } from "react-router-dom";
 import { pathSearch } from "../../../../../../../core/routing/path.ts";
-import mainLayoutRouting from "../../../../routing.ts";
+import mainLayoutRouting from "../../../../routing.tsx";
 
 const ProfileView: FC = () => {
     const navigate = useNavigate()

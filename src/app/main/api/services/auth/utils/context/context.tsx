@@ -1,11 +1,13 @@
 import { AxiosResponse } from "axios";
 import { UserPrivate } from "../../models/user.ts";
-import { createContext, FC, ReactNode, useEffect, useRef, useState } from "react";
-import { AuthData } from "../../internal_utils/utils.ts";
+import { createContext, FC, ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import ApiResponse from "../../../../api_response.ts";
-import { getAuthDataFromStorage, saveAuthDataToStorage } from "../../internal_utils/tokens.ts";
 import { loginAPICall, LoginRequestParams, registerAPICall, RegisterRequestParams } from "../../service.ts";
 import { setupAxiosClient } from "../../../../../../core/http/axios_client.ts";
+import useLocalStorage from "../../../../../../core/hooks/local_storage.ts";
+import { AuthData } from "../../models/auth_data.ts";
+
+const LOCAL_STORAGE_KEY = "auth_data";
 
 interface AuthContextData {
     user: UserPrivate | null;
@@ -22,48 +24,45 @@ type UserContextProps = {
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 const AuthContextProvider: FC<UserContextProps> = ({ children }: UserContextProps) => {
-    const [ authData, setAuthData ] = useState<AuthData | null>(null);
+    const [ authData, setAuthData ] = useLocalStorage<AuthData | null>(LOCAL_STORAGE_KEY, null);
     const [ isReady, setReady ] = useState<boolean>(false);
     const authDataRef = useRef(authData);
 
-    useEffect(() => {
-        saveAuthDataToStorage(authData);
-        authDataRef.current = authData;
-    }, [authData]);
+    const updateAuthData = useCallback((newAuthData: AuthData | null) => {
+        authDataRef.current = newAuthData
+        setAuthData(newAuthData);
+    }, [setAuthData]);
 
-    useEffect(() => {
-        const storedAuthData: AuthData | null = getAuthDataFromStorage();
-        if (storedAuthData) setAuthData(storedAuthData);
+    const logoutUser = useCallback(() => updateAuthData(null), [updateAuthData]);
 
-        setupAxiosClient(() => authDataRef.current, setAuthData, logoutUser);
-        setReady(true);
-    }, []);
+    const isAuthenticated = () => !!authDataRef.current
 
     const registerUser = async (params: RegisterRequestParams): Promise<ApiResponse<AuthData>> => {
         const response: AxiosResponse<ApiResponse<AuthData>> = await registerAPICall(params);
         const authData: AuthData = response.data.data;
-        setAuthData(authData);
+        updateAuthData(authData);
         return response.data;
     }
 
     const loginUser = async (params: LoginRequestParams): Promise<ApiResponse<AuthData>> => {
         const response: AxiosResponse<ApiResponse<AuthData>> = await loginAPICall(params);
         const newAuthData: AuthData = response.data.data;
-        setAuthData(newAuthData);
+        updateAuthData(newAuthData);
         return response.data;
     }
 
-    const logoutUser = () => setAuthData(null);
-
-    const isAuthenticated = () => !!authData;
-
+    useEffect(() => {
+        setupAxiosClient(() => authDataRef.current, updateAuthData, logoutUser);
+        setReady(true);
+    }, [logoutUser, updateAuthData]);
+    
     return (
         <AuthContext.Provider value={ {
             registerUser,
             loginUser,
             logoutUser,
             isAuthenticated,
-            user: authData != null ? authData.user : null
+            user: authDataRef.current != null ? authDataRef.current.user : null
         } }>
             { isReady && children }
         </AuthContext.Provider>

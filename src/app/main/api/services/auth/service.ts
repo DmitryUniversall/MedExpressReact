@@ -2,8 +2,9 @@ import mainErrorProcessor from "../../../errors/error_processor.ts";
 import { API_URL } from "../../api_config.ts";
 import axios, { AxiosResponse } from "axios";
 import ApiResponse from "../../api_response.ts";
-import { AuthData, AuthTokenPair } from "./internal_utils/utils.ts";
 import { axiosClient } from "../../../../core/http/axios_client.ts";
+import { AuthData } from "./models/auth_data.ts";
+import { AuthTokenPair } from "./models/auth_token_pair.ts";
 
 const AUTH_ENDPOINT: string = API_URL + "auth/";
 const LOGIN_ENDPOINT: string = AUTH_ENDPOINT + "login/";

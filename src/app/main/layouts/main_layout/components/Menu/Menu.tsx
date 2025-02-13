@@ -3,7 +3,7 @@ import "./menu.css"
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { pathSearch } from "../../../../../core/routing/path.ts";
-import mainLayoutRouting from "../../routing.ts";
+import mainLayoutRouting from "../../routing.tsx";
 import ScrollLink from "../../../../../core/routing/ScrollLink.tsx";
 import { useAuth } from "../../../../api/services/auth/utils/context/hook.ts";
 import { classNames } from "../../../../../core/utils/utils.ts";

@@ -31,3 +31,31 @@
 /** {*/
 /*    border: 1px red dashed !important;*/
 /*}*/
+
+.swiper {
+    padding: 0 5px;
+}
+
+.swiper-slide {
+    width: 300px;
+    height: 400px;
+}
+
+.product-slide .image-container {
+    position: relative;
+}
+
+.product-slide .new-badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 2px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.product-slide .image-container:hover .new-badge {
+    opacity: 0;
+}

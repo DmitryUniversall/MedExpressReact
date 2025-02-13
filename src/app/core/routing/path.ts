@@ -1,16 +1,16 @@
-import { ReactComponent } from "../../../types/global";
+import { ReactElement } from "react";
 
 interface LayoutRouting {
     name: string;
     path: string;
     urlPatterns: UrlPattern[];
-    component: ReactComponent;
+    component: ReactElement;
 }
 
 interface UrlPattern {
     path: string
     name: string
-    component: ReactComponent
+    element: ReactElement
 }
 
 function include(name: string, path: string, patterns: UrlPattern[]) {

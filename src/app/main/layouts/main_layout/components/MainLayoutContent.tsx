@@ -1,19 +1,19 @@
-import {FC, ReactElement} from "react";
-import {Routes} from "react-router-dom";
+import { FC, ReactElement } from "react";
+import { Routes } from "react-router-dom";
 
 interface MainLayoutContentProps {
     get_routes: () => ReactElement[];
 }
 
 
-const MainLayoutContent: FC<MainLayoutContentProps> = ({get_routes}) => {
+const MainLayoutContent: FC<MainLayoutContentProps> = ({ get_routes }) => {
     return (
         <div id="#main_layout_content" className='d-flex justify-content-center w-100 h-100'>
-            {/* View content */}
+            {/* View content */ }
             <Routes>
-                {get_routes()}
+                { get_routes() }
             </Routes>
-            {/* END View content*/}
+            {/* END View content*/ }
         </div>
     )
 }

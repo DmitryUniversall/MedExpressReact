@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { pathSearch } from "../../../../../../../../core/routing/path.ts";
 import ScrollLink from "../../../../../../../../core/routing/ScrollLink.tsx";
-import mainLayoutRouting from "../../../../../routing.ts";
+import mainLayoutRouting from "../../../../../routing.tsx";
 
 const Header: FC = () => {
     const { t } = useTranslation("index");

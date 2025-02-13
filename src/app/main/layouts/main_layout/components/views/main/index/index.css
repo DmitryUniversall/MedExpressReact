@@ -414,31 +414,3 @@ a {
     background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
     padding: 5rem 0;
 }
-
-#popular_products .swiper {
-    padding: 0 5px;
-}
-
-#popular_products .swiper-slide {
-    width: 300px;
-    height: 400px;
-}
-
-#popular_products .product-slide .image-container {
-    position: relative;
-}
-
-#popular_products .product-slide .new-badge {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    padding: 2px 7px;
-    font-size: 12px;
-    font-weight: bold;
-    opacity: 1;
-    transition: opacity 0.2s;
-}
-
-#popular_products .product-slide .image-container:hover .new-badge {
-    opacity: 0;
-}

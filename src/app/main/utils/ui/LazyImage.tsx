@@ -12,7 +12,7 @@ const LazyImage: FC<LazyImageProps> = ({ src, alt, className, skeletonProps }) =
     const [ isLoaded, setIsLoaded ] = useState(false);
 
     return (
-        <div className="position-relative w-100">
+        <>
             { !isLoaded && <Skeleton { ...skeletonProps } /> }
             <img
                 src={ src }
@@ -20,7 +20,7 @@ const LazyImage: FC<LazyImageProps> = ({ src, alt, className, skeletonProps }) =
                 className={ `${ className } ${ !isLoaded ? "d-none" : "" }` }
                 onLoad={ () => setIsLoaded(true) }
             />
-        </div>
+        </>
     );
 };
 

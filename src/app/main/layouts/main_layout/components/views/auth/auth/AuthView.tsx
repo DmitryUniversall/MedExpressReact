@@ -6,7 +6,7 @@ import { useAuth } from "../../../../../../api/services/auth/utils/context/hook.
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { pathSearch } from "../../../../../../../core/routing/path.ts";
-import mainLayoutRouting from "../../../../routing.ts";
+import mainLayoutRouting from "../../../../routing.tsx";
 import ApiRequestError from "../../../../../../api/errors/api_request_error.ts";
 import ApiRespondedError from "../../../../../../api/errors/api_responded_error.ts";
 
@@ -57,17 +57,17 @@ const AuthView: FC = () => {
     const { loginUser, registerUser, isAuthenticated } = useAuth();
     const navigate = useNavigate();
 
-    const [authError, setAuthError] = useState<string>("");
-    const [errors, setErrors] = useState<Partial<AuthFormState>>({});
-    const [authType, setAuthType] = useState<AuthType>(AuthType.login);
-    const [authFormState, setAuthFormState] = useState<AuthFormState>(initialAuthFormState)
+    const [ authError, setAuthError ] = useState<string>("");
+    const [ errors, setErrors ] = useState<Partial<AuthFormState>>({});
+    const [ authType, setAuthType ] = useState<AuthType>(AuthType.login);
+    const [ authFormState, setAuthFormState ] = useState<AuthFormState>(initialAuthFormState)
 
     useEffect(() => {
         if (isAuthenticated()) {
             navigate(pathSearch(mainLayoutRouting, "main=>index", {}));  // TODO: history.goBack()
             return;
         }
-    }, [isAuthenticated, navigate])
+    }, [ isAuthenticated, navigate ])
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;

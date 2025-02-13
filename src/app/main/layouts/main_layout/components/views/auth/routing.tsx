@@ -6,12 +6,12 @@ const authUrlPatterns: UrlPattern[] = [
     {
         name: "main",
         path: "",
-        component: AuthView
+        element: <AuthView/>
     },
     {
         name: "logout",
         path: "logout/",
-        component: AuthView
+        element: <AuthView/>
     }
 ]
 

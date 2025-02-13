@@ -1,23 +1,32 @@
 import { UrlPattern } from "../../../../../../core/routing/path.ts";
 import IndexView from "./index/IndexView.tsx";
 import CartView from "./cart/CartView.tsx";
+import { RequireAuthentication } from "../../../../../api/services/auth/utils/RequireAuthentication.tsx";
 import ProfileView from "./profile/ProfileView.tsx";
 
 const mainUrlPatterns: UrlPattern[] = [
     {
         name: "index",
         path: "",
-        component: IndexView
+        element: <IndexView/>
     },
     {
         name: "cart",
         path: "cart/",
-        component: CartView
+        element: (
+            <RequireAuthentication>
+                <CartView/>
+            </RequireAuthentication>
+        )
     },
     {
         name: "profile",
         path: "profile/",
-        component: ProfileView
+        element: (
+            <RequireAuthentication>
+                <ProfileView/>
+            </RequireAuthentication>
+        )
     }
 ]
 

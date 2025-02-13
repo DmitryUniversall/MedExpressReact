@@ -33,7 +33,7 @@ root.render(
             <QueryClientProvider client={ queryClient }>
                 <BrowserRouter>
                     <Routes>
-                        <Route path={ `${ layout.path }*` } key={ layout.name } element={ <layout.component/> }/>
+                        <Route path={ `${ layout.path }*` } key={ layout.name } element={ layout.component }/>
                         {/*<Route path='*' element={<NotFound404View/>}/>*/ }
                     </Routes>
                 </BrowserRouter>

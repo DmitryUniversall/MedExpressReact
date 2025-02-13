@@ -1,4 +1,4 @@
-import mainLayoutRouting from "./app/main/layouts/main_layout/routing.ts";
+import mainLayoutRouting from "./app/main/layouts/main_layout/routing.tsx";
 import {LayoutRouting} from "./app/core/routing/path.ts";
 
 type Layouts = {

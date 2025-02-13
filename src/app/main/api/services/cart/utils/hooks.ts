@@ -4,11 +4,12 @@ import {
     fetchCartItemsAPICall,
     purchaseAPICall,
     removeCartItemAPICall,
-    updateCartItemAPICall
+    updateCartItemAPICall,
+    UpdateCartItemPayload
 } from "../service.ts";
 import { DeliveryOrder } from "../../delivery/models/delivery_order.ts";
 
-export const useFetchCartItems = () => {
+export const useCartItems = () => {
     return useQuery({
         queryKey: [ 'cartItems' ],
         queryFn: fetchCartItemsAPICall,
@@ -34,7 +35,7 @@ export const useRemoveCartItem = () => {
 export const useUpdateCartItem = () => {
     const queryClient = useQueryClient();
     return useMutation({
-        mutationFn: updateCartItemAPICall,
+        mutationFn: (payload: UpdateCartItemPayload) => updateCartItemAPICall(payload),
         onSuccess: () => queryClient.invalidateQueries({ queryKey: [ 'cartItems' ] })
     });
 };
