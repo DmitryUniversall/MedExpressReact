@@ -16,8 +16,14 @@ const CartSelection: FC = () => {
 
     if (error) console.error(error);
 
+    let sum: number | undefined = undefined
     let totalSum: number | undefined = undefined
-    if (!isLoading && !error) totalSum = cartItems?.reduce((sum: number, item: CartItemLoadedD1): number => sum + (item.product.price * item.quantity), 0)
+    let deliverySum: number | undefined = undefined
+    if (!isLoading && !error) {
+        sum = cartItems?.reduce((sum: number, item: CartItemLoadedD1): number => sum + (item.product.price * item.quantity), 0);
+        deliverySum = sum! * 0.1
+        totalSum = sum! + deliverySum;
+    }
 
     const updateCartItem = async (updatedItem: CartItemLoadedD1): Promise<void> => {
         if (isLoading) return;
@@ -103,7 +109,7 @@ const CartSelection: FC = () => {
                                 <h3 className="mb-2">{ t("common:price") }:</h3>
                                 {
                                     !isLoading && totalSum ? (
-                                        <h4 className="mb-2">{ currency } { totalSum!.toFixed(2) }</h4>
+                                        <h4 className="mb-2">{ currency } { sum!.toFixed(2) }</h4>
                                     ) : (
                                         <Skeleton height="1.25rem" width="100%" containerClassName="w-25"/>
                                     )
@@ -123,7 +129,7 @@ const CartSelection: FC = () => {
                                 <h3 className="mb-2">{ t("common:delivery") }:</h3>
                                 {
                                     !isLoading && totalSum ? (
-                                        <h4 className="mb-2">{ currency } { (totalSum! * 0.1).toFixed(2) }</h4>
+                                        <h4 className="mb-2">{ currency } { deliverySum!.toFixed(2) }</h4>
                                     ) : (
                                         <Skeleton height="1.25rem" width="100%" containerClassName="w-25"/>
                                     )
@@ -134,7 +140,7 @@ const CartSelection: FC = () => {
                                 <h3 className="mb-2">{ t("cart:total") }:</h3>
                                 {
                                     !isLoading && totalSum ? (
-                                        <h4 className="mb-2 fw-bold">$283.00</h4>
+                                        <h4 className="mb-2 fw-bold">{ currency } { totalSum!.toFixed(2) }</h4>
                                     ) : (
                                         <Skeleton height="1.25rem" width="100%" containerClassName="w-25"/>
                                     )
