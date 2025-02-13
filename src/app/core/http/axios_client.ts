@@ -57,6 +57,8 @@ const setupAxiosAutoAccessToken = (getAuthData: () => AuthData | null) => {
             const accessToken: string = authData.tokens.access_token;
             if (accessToken && request.headers) request.headers.Authorization = `Bearer ${ accessToken }`;
 
+            console.log("SET TOKEN", authData, request.headers)
+
             return request;
         }
     );

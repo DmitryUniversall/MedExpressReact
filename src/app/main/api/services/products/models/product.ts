@@ -4,10 +4,12 @@ interface Product {
     title: string
     description: string
     sort_description: string
-    image_src: string
     created_at: string
     price: number
     is_new: boolean
+    full_image_src: string
+    medium_image_src: string
+    small_image_src: string
 }
 
 

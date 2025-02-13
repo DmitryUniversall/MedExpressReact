@@ -135,10 +135,6 @@ a:focus,
 }
 
 /* Features Section */
-#features {
-    background: #f6f6f6;
-}
-
 #features i.fa {
     font-size: 38px;
     margin-bottom: 20px;
@@ -394,6 +390,10 @@ a {
 
 
 /* Popular products section */
+#popular_products .error {
+    width: 300px;
+    height: 400px;
+}
 
 #popular_products .title {
     color: white;

@@ -7,5 +7,11 @@
     "back_to_market": "Вернуться в магазин",
     "add_to_cart": "Добавить в корзину",
     "add_to_cart_short": "В корзину",
-    "new-product": "Новинка"
+    "added_to_cart": "Добавлено в корзину",
+    "failed_to_add_to_cart": "Не удалось добавить в корзину",
+    "new-product": "Новинка",
+    "pending": "Ожидание",
+    "error_occurred": "Произошла ошибка",
+    "unknown_error_occurred": "Произошла неизвестная ошибка",
+    "success": "Успешно"
 }
