@@ -22,9 +22,9 @@ const MainLayout: React.FC = () => {
     return (
         <ThemeContextProvider>
             <AuthContextProvider>
-                <div className="d-flex flex-column justify-content-between h-100">
-                    <ToastContainer/>
+                <ToastContainer/>
 
+                <div className="d-flex flex-column justify-content-between h-100">
                     <div id="page-content">
                         {/* MENU */ }
                         <Menu/>

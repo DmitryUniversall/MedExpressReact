@@ -1,0 +1,16 @@
+.profile-photo {
+    width: 96px;
+    height: 96px;
+}
+
+#profile_view .card {
+    padding: 1.2rem;
+}
+
+#profile_view .card-shadow-1 {
+    box-shadow: 0 0 2px 0 rgba(34, 60, 80, 0.2);
+}
+
+#profile_view .card-shadow-2 {
+    box-shadow: 0 0 4px 0 rgba(34, 60, 80, 0.2);
+}

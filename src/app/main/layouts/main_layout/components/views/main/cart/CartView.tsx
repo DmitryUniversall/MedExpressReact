@@ -1,19 +1,19 @@
 import "./cart.css"
 
 import { FC } from "react";
-import CartSelection from "./components/CartSelection.tsx";
-import RecommendedProductsSelection from "./components/RecommendedProductsSelection.tsx";
+import CartSection from "./components/CartSection.tsx";
+import RecommendedProductsSection from "./components/RecommendedProductsSection.tsx";
 
 const CartView: FC = () => {
     return (
         <>
-            <div id="cart_view">
+            <div id="cart_view" className="d-flex flex-column">
                 <section className="my-5">
-                    <CartSelection/>
+                    <CartSection/>
                 </section>
 
                 <section>
-                    <RecommendedProductsSelection/>
+                    <RecommendedProductsSection/>
                 </section>
             </div>
         </>

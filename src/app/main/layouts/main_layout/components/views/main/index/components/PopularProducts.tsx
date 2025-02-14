@@ -23,13 +23,13 @@ const PopularProducts: FC = () => {
                     !error ? (
                         <ProductSwiper
                             isLoading={ isLoading }
-                            currency={ "$" }
+                            currency={ "₽" }
                             products={ products as Product[] }
                             skeletonsCount={ 10 }
                         />
                     ) : (
                         <div className="error w-100">
-                            <h3 className="message text-danger text-center">{ t("unknown_error_occurred") }</h3>
+                            <h3 className="message text-danger text-center">{ t("common:unknown_error_occurred") }</h3>
                         </div>
                     )
                 }

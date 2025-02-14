@@ -38,7 +38,7 @@
 
 .swiper-slide {
     width: 300px;
-    height: 400px;
+    height: 520px;
 }
 
 .product-slide .image-container {
@@ -58,4 +58,10 @@
 
 .product-slide .image-container:hover .new-badge {
     opacity: 0;
+}
+
+.text-overflow-ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }

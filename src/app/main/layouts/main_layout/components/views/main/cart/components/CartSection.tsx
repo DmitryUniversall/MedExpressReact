@@ -2,17 +2,19 @@ import { FC } from "react";
 import CartItem from "./CartItem.tsx";
 import { classNames } from "../../../../../../../../core/utils/utils.ts";
 import Skeleton from "react-loading-skeleton";
-import { useCartItems, useUpdateCartItem } from "../../../../../../../api/services/cart/utils/hooks.ts";
+import { useCartItems, usePurchase, useRemoveCartItem, useUpdateCartItem } from "../../../../../../../api/services/cart/utils/hooks.ts";
 import { useTranslation } from "react-i18next";
 import { CartItemLoadedD1 } from "../../../../../../../api/services/cart/models/cart_item.ts";
 
-const currency: string = "$"
+const currency: string = "₽"
 
 
-const CartSelection: FC = () => {
+const CartSection: FC = () => {
     const { t } = useTranslation([ "common", "cart" ])
     const { data: cartItems, isLoading: isLoading, error: error } = useCartItems();
     const { mutateAsync: updateCartItemAsync } = useUpdateCartItem();
+    const { mutateAsync: removeCartItemAsync } = useRemoveCartItem();
+    const { mutateAsync: purchaseAsync } = usePurchase()
 
     if (error) console.error(error);
 
@@ -35,6 +37,26 @@ const CartSelection: FC = () => {
         }
     };
 
+    const removeCartItem = async (itemId: number) => {
+        if (isLoading) return;
+
+        try {
+            await removeCartItemAsync(itemId);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const handlePurchase = async () => {
+        if (isLoading) return;
+
+        try {
+            await purchaseAsync({ latitude: 0, longitude: 0 });  // TODO
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     return (
         <div className="container">
             <div className="row">
@@ -42,28 +64,37 @@ const CartSelection: FC = () => {
                     <div className="card border shadow-0">
                         <div className="m-4">
                             <h4 className="card-title mb-4">{ t("cart:your_shopping_cart") }</h4>
-                            {
-                                !isLoading ? (
-                                    cartItems?.map((cartItem, index) => (
+                            <div className="d-flex flex-column gap-3">
+                                {
+                                    !isLoading ? (
+                                        cartItems && cartItems.length != 0 ? (
+                                            cartItems?.map((cartItem, index) => (
+                                                    <CartItem
+                                                        key={ index }
+                                                        isLoading={ false }
+                                                        cartItem={ cartItem }
+                                                        currency={ currency }
+                                                        updateCartItem={ updateCartItem }
+                                                        removeCartItem={ removeCartItem }
+                                                    />
+                                                )
+                                            )
+                                        ) : (
+                                            <div className="w-100">
+                                                <h3 className="message text-center">{ t("cart:has_no_items") }</h3>
+                                            </div>
+                                        )
+                                    ) : (
+                                        [ ...Array(5).keys() ].map(index =>
                                             <CartItem
                                                 key={ index }
-                                                isLoading={ false }
-                                                cartItem={ cartItem }
-                                                currency={ currency }
-                                                updateCartItem={ updateCartItem }
+                                                isLoading={ true }
+                                                cartItem={ null }
                                             />
                                         )
                                     )
-                                ) : (
-                                    [ ...Array(5).keys() ].map(index =>
-                                        <CartItem
-                                            key={ index }
-                                            isLoading={ true }
-                                            cartItem={ null }
-                                        />
-                                    )
-                                )
-                            }
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -108,8 +139,8 @@ const CartSelection: FC = () => {
                             <div className="d-flex justify-content-between">
                                 <h3 className="mb-2">{ t("common:price") }:</h3>
                                 {
-                                    !isLoading && totalSum ? (
-                                        <h4 className="mb-2">{ currency } { sum!.toFixed(2) }</h4>
+                                    !isLoading && totalSum != null ? (
+                                        <h4 className="mb-2">{ currency }{ sum!.toFixed(2) }</h4>
                                     ) : (
                                         <Skeleton height="1.25rem" width="100%" containerClassName="w-25"/>
                                     )
@@ -119,7 +150,7 @@ const CartSelection: FC = () => {
                                 <h3 className="mb-2">{ t("cart:discount") }:</h3>
                                 {
                                     !isLoading ? (
-                                        <h4 className="mb-2 text-success">-$00.00</h4>
+                                        <h4 className="mb-2 text-success">-$0.00</h4>
                                     ) : (
                                         <Skeleton height="1.25rem" width="100%" containerClassName="w-25"/>
                                     )
@@ -128,8 +159,8 @@ const CartSelection: FC = () => {
                             <div className="d-flex justify-content-between">
                                 <h3 className="mb-2">{ t("common:delivery") }:</h3>
                                 {
-                                    !isLoading && totalSum ? (
-                                        <h4 className="mb-2">{ currency } { deliverySum!.toFixed(2) }</h4>
+                                    !isLoading && totalSum != null ? (
+                                        <h4 className="mb-2">{ currency }{ deliverySum!.toFixed(2) }</h4>
                                     ) : (
                                         <Skeleton height="1.25rem" width="100%" containerClassName="w-25"/>
                                     )
@@ -139,8 +170,8 @@ const CartSelection: FC = () => {
                             <div className="d-flex justify-content-between">
                                 <h3 className="mb-2">{ t("cart:total") }:</h3>
                                 {
-                                    !isLoading && totalSum ? (
-                                        <h4 className="mb-2 fw-bold">{ currency } { totalSum!.toFixed(2) }</h4>
+                                    !isLoading && totalSum != null ? (
+                                        <h4 className="mb-2 fw-bold">{ currency }{ totalSum!.toFixed(2) }</h4>
                                     ) : (
                                         <Skeleton height="1.25rem" width="100%" containerClassName="w-25"/>
                                     )
@@ -149,7 +180,9 @@ const CartSelection: FC = () => {
 
                             <div className="mt-3">
                                 <button
-                                    className={ classNames("btn btn-custom-primary w-100 mb-2", { disabled: isLoading }) }>
+                                    className={ classNames("btn btn-custom-primary w-100 mb-2", { disabled: isLoading || cartItems?.length == 0 }) }
+                                    onClick={ handlePurchase }
+                                >
                                     { t("cart:purchase") }
                                 </button>
                                 <button className="btn btn-light w-100 border mt-2">
@@ -164,4 +197,4 @@ const CartSelection: FC = () => {
     )
 }
 
-export default CartSelection;
+export default CartSection;

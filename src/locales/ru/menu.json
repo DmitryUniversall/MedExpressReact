@@ -4,5 +4,7 @@
     "services": "Услуги",
     "FAQ": "FAQ",
     "login": "Войти",
-    "profile": "Профиль"
+    "profile": "Профиль",
+    "cart": "Корзина",
+    "popular_products": "Продукты"
 }

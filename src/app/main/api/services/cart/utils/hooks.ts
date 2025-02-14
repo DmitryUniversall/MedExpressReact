@@ -1,13 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import {
-    addCartItemAPICall,
-    fetchCartItemsAPICall,
-    purchaseAPICall,
-    removeCartItemAPICall,
-    updateCartItemAPICall,
-    UpdateCartItemPayload
-} from "../service.ts";
-import { DeliveryOrder } from "../../delivery/models/delivery_order.ts";
+import { addCartItemAPICall, fetchCartItemsAPICall, purchaseAPICall, removeCartItemAPICall, updateCartItemAPICall } from "../service.ts";
 
 export const useCartItems = () => {
     return useQuery({
@@ -35,16 +27,16 @@ export const useRemoveCartItem = () => {
 export const useUpdateCartItem = () => {
     const queryClient = useQueryClient();
     return useMutation({
-        mutationFn: (payload: UpdateCartItemPayload) => updateCartItemAPICall(payload),
+        mutationFn: updateCartItemAPICall,
         onSuccess: () => queryClient.invalidateQueries({ queryKey: [ 'cartItems' ] })
     });
 };
 
-export const usePurchase = (latitude: number, longitude: number) => {
+export const usePurchase = () => {
     const queryClient = useQueryClient();
 
-    return useMutation<DeliveryOrder[]>({
-        mutationFn: () => purchaseAPICall({ latitude, longitude }),
+    return useMutation({
+        mutationFn: purchaseAPICall,
         onSuccess: () => queryClient.invalidateQueries({ queryKey: [ 'cartItems' ] })
     });
 };

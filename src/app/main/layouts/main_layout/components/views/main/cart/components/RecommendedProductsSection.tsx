@@ -4,7 +4,7 @@ import { Product } from "../../../../../../../api/services/products/models/produ
 import { useTranslation } from "react-i18next";
 import { useRecommendedProducts } from "../../../../../../../api/services/products/utils/hooks.ts";
 
-const RecommendedProducts: FC = () => {
+const RecommendedProductsSection: FC = () => {
     const { t } = useTranslation([ "common", "cart" ])
     const { data: products, isLoading: isLoading, error: error } = useRecommendedProducts();
 
@@ -21,13 +21,13 @@ const RecommendedProducts: FC = () => {
                     !error ? (
                         <ProductSwiper
                             isLoading={ isLoading }
-                            currency={ "$" }
+                            currency={ "₽" }
                             products={ products as Product[] }
                             skeletonsCount={ 10 }
                         />
                     ) : (
                         <div className="error w-100">
-                            <h3 className="message text-danger text-center">{ t("unknown_error_occurred") }</h3>
+                            <h3 className="message text-danger text-center">{ t("common:unknown_error_occurred") }</h3>
                         </div>
                     )
                 }
@@ -37,4 +37,4 @@ const RecommendedProducts: FC = () => {
 }
 
 
-export default RecommendedProducts;
+export default RecommendedProductsSection;

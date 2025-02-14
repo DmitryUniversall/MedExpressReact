@@ -1,22 +1,26 @@
 import { FC } from "react";
-import { useAuth } from "../../../../../../api/services/auth/utils/context/hook.ts";
-import { useNavigate } from "react-router-dom";
-import { pathSearch } from "../../../../../../../core/routing/path.ts";
-import mainLayoutRouting from "../../../../routing.tsx";
+import "./profile.css"
+import ProfileOrdersSection from "./components/ProfileOrdersSection.tsx";
+import ProfileUserSection from "./components/ProfileUserSection.tsx";
+
 
 const ProfileView: FC = () => {
-    const navigate = useNavigate()
-    const { logoutUser } = useAuth();
-
-    const handleLogout = () => {
-        logoutUser();
-        navigate(pathSearch(mainLayoutRouting, "main=>index", {}))
-    }
-
     return (
-        <>
-            <button className="btn btn-custom-primary" onClick={ handleLogout }>Logout</button>
-        </>
+        <div id="profile_view" className="h-100">
+            <div className="m-4">
+                <div className="row g-3">
+                    <div className="col-12 col-lg-4">
+                        <ProfileUserSection/>
+                    </div>
+
+                    <div className="col-12 col-lg-8">
+                        <section>
+                            <ProfileOrdersSection/>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 

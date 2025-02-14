@@ -8,7 +8,7 @@ interface MainLayoutContentProps {
 
 const MainLayoutContent: FC<MainLayoutContentProps> = ({ get_routes }) => {
     return (
-        <div id="#main_layout_content" className='d-flex justify-content-center w-100 h-100'>
+        <div id="main_layout_content" className='w-100 h-100'>
             {/* View content */ }
             <Routes>
                 { get_routes() }

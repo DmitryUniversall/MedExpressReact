@@ -1,6 +1,5 @@
 import { axiosClient } from "../../../../core/http/axios_client.ts";
 import { CartItem, CartItemLoadedD1 } from "./models/cart_item.ts";
-import { DeliveryOrder } from "../delivery/models/delivery_order.ts";
 
 export interface AddCartItemPayload {
     product_id: number;
@@ -20,7 +19,7 @@ export const fetchCartItemsAPICall = async (): Promise<CartItemLoadedD1[]> => {
 
 
 export const removeCartItemAPICall = async (item_id: number): Promise<void> => {
-    await axiosClient.get(`/cart/items/item/${ item_id }/`);
+    await axiosClient.delete(`/cart/items/item/${ item_id }/`);
 };
 
 
@@ -39,7 +38,6 @@ export interface PurchasePayload {
     longitude: number;
 }
 
-export const purchaseAPICall = async (payload: PurchasePayload): Promise<DeliveryOrder[]> => {
-    const { data } = await axiosClient.post('/cart/purchase/', payload);
-    return data.data.orders;
+export const purchaseAPICall = async (payload: PurchasePayload): Promise<void> => {
+    await axiosClient.post('/cart/purchase/', payload);
 };

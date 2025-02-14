@@ -24,9 +24,9 @@ export const ProductSwiper: FC<ProductSwiperProps> = (props: ProductSwiperProps)
             slidesPerView={ "auto" }>
             {
                 !props.isLoading ? (
-                    (props.products as Product[]).map((product, index) => (
+                    props.products && (props.products).map((product, index) => (
                         <SwiperSlide key={ index }>
-                            <ProductSlide isLoading={ false } currency={ "$" } product={ product }/>
+                            <ProductSlide isLoading={ false } currency={ "₽" } product={ product }/>
                         </SwiperSlide>
                     ))
                 ) : (

@@ -73,7 +73,7 @@ export const ProductSlide: FC<ProductSlideProps> = (props: ProductSlideProps) =>
                 </div>
                 <div className="card-body mt-3 p-0 pb-0 d-flex flex-column">
                     <div className="pb-3 d-flex flex-column">
-                        <span className="fw-bold h5 mb-1">
+                        <span className="fw-bold h5 mb-1 text-overflow-ellipsis">
                             {
                                 !props.isLoading ? (
                                     props.product.title
@@ -82,7 +82,7 @@ export const ProductSlide: FC<ProductSlideProps> = (props: ProductSlideProps) =>
                                 )
                             }
                         </span>
-                        <span className="h6 text-secondary mb-4">
+                        <span className="text-overflow-ellipsis h6 text-secondary mb-4">
                             {
                                 !props.isLoading ? (
                                     props.product.sort_description

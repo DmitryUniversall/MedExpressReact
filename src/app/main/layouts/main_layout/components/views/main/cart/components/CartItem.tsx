@@ -16,7 +16,8 @@ interface CartItemPropsLoaded {
     isLoading: false;
     cartItem: CartItemLoadedD1;
     currency: string;
-    updateCartItem: (updatedItem: CartItemLoadedD1) => Promise<void>
+    updateCartItem: (updatedItem: CartItemLoadedD1) => Promise<void>;
+    removeCartItem: (itemId: number) => Promise<void>;
 }
 
 type CartItemProps = CartItemPropsLoading | CartItemPropsLoaded;
@@ -28,13 +29,14 @@ const CartItem = (props: CartItemProps) => {
         if (props.isLoading) return;
 
         const updatedItem = { ...props.cartItem, quantity: Number(event.target.value) };
-
-        try {
-            await props.updateCartItem(updatedItem);
-        } catch (error) {
-            console.error(error);
-        }
+        await props.updateCartItem(updatedItem);
     };
+
+    const handleRemoveItem = async () => {
+        if (props.isLoading) return;
+
+        await props.removeCartItem(props.cartItem.id);
+    }
 
     const generateOptions = () => {
         if (props.isLoading) return [];
@@ -50,7 +52,7 @@ const CartItem = (props: CartItemProps) => {
 
     return (
         <>
-            <div className="row mb-4 cart-item">
+            <div className="row cart-item">
                 <div className="col-12 col-md-8 col-lg-8">
                     <div className="me-lg-3">
                         <div className="d-flex flex-row">
@@ -131,7 +133,7 @@ const CartItem = (props: CartItemProps) => {
                         </div>
                         <div className="col-2 col-sm-2 col-md-4 col-lg-4">
                             <div className="d-flex w-100 justify-content-center">
-                                <div className="btn btn-danger rounded ">
+                                <div className="btn btn-danger rounded" onClick={handleRemoveItem}>
                                     <i className="fa fa-trash"/>
                                 </div>
                             </div>

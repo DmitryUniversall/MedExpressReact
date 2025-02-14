@@ -13,5 +13,7 @@
     "pending": "Ожидание",
     "error_occurred": "Произошла ошибка",
     "unknown_error_occurred": "Произошла неизвестная ошибка",
-    "success": "Успешно"
+    "success": "Успешно",
+    "logout_full": "Выйти из аккаунта",
+    "logout": "Выйти"
 }

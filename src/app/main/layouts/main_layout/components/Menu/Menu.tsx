@@ -10,10 +10,10 @@ import { classNames } from "../../../../../core/utils/utils.ts";
 
 
 const Menu: FC = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const [ isMenuOpen, setIsMenuOpen ] = useState<boolean>(false);
     const menuRef: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
-    const { t } = useTranslation(["menu", "common"])
+    const { t } = useTranslation([ "menu", "common" ])
     const { isAuthenticated } = useAuth();
 
     const toggleMenu = () => {
@@ -32,7 +32,7 @@ const Menu: FC = () => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, []);
+    }, []);  // FIXME
 
     return (
         <nav id="menu" className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -57,6 +57,12 @@ const Menu: FC = () => {
                             <ScrollLink className="nav-link" top={ 77 }
                                         to={ pathSearch(mainLayoutRouting, "main=>index", {}) } id={ "features" }>
                                 { t("menu:features") }
+                            </ScrollLink>
+                        </li>
+                        <li className="nav-item">
+                            <ScrollLink className="nav-link" top={ 77 }
+                                        to={ pathSearch(mainLayoutRouting, "main=>index", {}) } id={ "popular_products" }>
+                                { t("menu:popular_products") }
                             </ScrollLink>
                         </li>
                         <li className="nav-item">
@@ -91,6 +97,15 @@ const Menu: FC = () => {
                                 )
                             }
                         </li>
+                        {
+                            isAuthenticated() && (
+                                <li className="nav-item">
+                                    <Link className="nav-link" to={ pathSearch(mainLayoutRouting, "main=>cart", {}) }>
+                                        { t("menu:cart") }
+                                    </Link>
+                                </li>
+                            )
+                        }
                     </ul>
                 </div>
             </div>

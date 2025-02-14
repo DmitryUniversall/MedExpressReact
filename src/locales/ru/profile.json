@@ -1,0 +1,12 @@
+{
+    "account_info": "Информация",
+    "deliveries": "Мои подписки",
+    "see_all_delivery_orders": "Посмотреть все",
+    "has_no_orders": "У вас ещё нет подписок",
+    "email": "Email",
+    "created_at": "Зарегистрирован",
+    "delivery_address": "Адрес доставки",
+    "order_arrive_soon": "Почти на месте",
+    "order_on_the_way": "В пути",
+    "order_packaging": "Ожидает сборки"
+}

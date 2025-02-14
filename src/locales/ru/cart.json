@@ -8,5 +8,6 @@
     "total": "Итого",
     "discount": "Скидка",
     "purchase": "Оформить заказ",
-    "recommended_items": "Рекомендуемые товары"
+    "recommended_items": "Рекомендуемые товары",
+    "has_no_items": "Корзина пуста"
 }
